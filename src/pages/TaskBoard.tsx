@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Kanban, ArrowRight, Plus } from "lucide-react";
+import { Kanban, ArrowRight, Plus, CheckCircle2, Clock, AlertCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -10,6 +10,7 @@ const TaskBoard = () => {
   const columns = [
     {
       title: "To Do",
+      icon: <AlertCircle className="h-5 w-5 text-red-500" />,
       tasks: [
         { id: 1, title: "Select materials", priority: "high" },
         { id: 2, title: "Contact suppliers", priority: "medium" },
@@ -18,6 +19,7 @@ const TaskBoard = () => {
     },
     {
       title: "In Progress",
+      icon: <Clock className="h-5 w-5 text-yellow-500" />,
       tasks: [
         { id: 4, title: "Site preparation", priority: "high" },
         { id: 5, title: "Foundation work", priority: "medium" },
@@ -25,6 +27,7 @@ const TaskBoard = () => {
     },
     {
       title: "Done",
+      icon: <CheckCircle2 className="h-5 w-5 text-green-500" />,
       tasks: [
         { id: 6, title: "Initial planning", priority: "medium" },
         { id: 7, title: "Budget approval", priority: "high" },
@@ -35,11 +38,11 @@ const TaskBoard = () => {
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case "high":
-        return "bg-red-100 text-red-700";
+        return "bg-red-100 text-red-700 border-red-200";
       case "medium":
-        return "bg-yellow-100 text-yellow-700";
+        return "bg-yellow-100 text-yellow-700 border-yellow-200";
       default:
-        return "bg-green-100 text-green-700";
+        return "bg-green-100 text-green-700 border-green-200";
     }
   };
 
@@ -51,13 +54,13 @@ const TaskBoard = () => {
     <div className="min-h-screen p-8 bg-gradient-to-br from-background via-accent/20 to-background">
       <div className="max-w-7xl mx-auto space-y-8">
         <div className="flex justify-between items-center animate-fade-in">
-          <h1 className="text-4xl font-bold flex items-center gap-3 text-primary">
-            <Kanban className="h-10 w-10" />
+          <h1 className="text-4xl font-bold flex items-center gap-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <Kanban className="h-10 w-10 text-primary" />
             Task Board
           </h1>
           <div className="space-x-4">
-            <Button variant="outline" onClick={handleAddTask}>
-              <Plus className="mr-2 h-4 w-4" />
+            <Button variant="outline" onClick={handleAddTask} className="group">
+              <Plus className="mr-2 h-4 w-4 group-hover:rotate-90 transition-transform duration-300" />
               Add Task
             </Button>
             <Button onClick={() => navigate("/contractors")}>
@@ -67,18 +70,26 @@ const TaskBoard = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {columns.map((column) => (
-            <Card key={column.title} className="p-4 bg-gradient-to-b from-white to-accent/5">
-              <h2 className="text-xl font-semibold mb-4 text-primary">{column.title}</h2>
+          {columns.map((column, columnIndex) => (
+            <Card 
+              key={column.title} 
+              className="p-4 bg-gradient-to-b from-white to-accent/5 animate-fade-in border border-accent/20 backdrop-blur-sm"
+              style={{ animationDelay: `${columnIndex * 150}ms` }}
+            >
+              <h2 className="text-xl font-semibold mb-4 text-primary flex items-center gap-2">
+                {column.icon}
+                {column.title}
+              </h2>
               <div className="space-y-3">
-                {column.tasks.map((task) => (
+                {column.tasks.map((task, taskIndex) => (
                   <Card 
                     key={task.id} 
-                    className="p-4 cursor-pointer hover:shadow-md transition-all duration-300 hover:-translate-y-1 animate-fade-in"
+                    className="p-4 cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group animate-fade-in bg-white/50"
+                    style={{ animationDelay: `${(columnIndex * 150) + (taskIndex * 100)}ms` }}
                   >
                     <div className="space-y-2">
-                      <h3 className="font-medium">{task.title}</h3>
-                      <span className={`text-xs px-2 py-1 rounded-full ${getPriorityColor(task.priority)} capitalize`}>
+                      <h3 className="font-medium group-hover:text-primary transition-colors">{task.title}</h3>
+                      <span className={`text-xs px-2 py-1 rounded-full ${getPriorityColor(task.priority)} border capitalize inline-block`}>
                         {task.priority} Priority
                       </span>
                     </div>
