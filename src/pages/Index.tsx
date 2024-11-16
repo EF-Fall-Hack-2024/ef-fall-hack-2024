@@ -1,6 +1,7 @@
 import { AuthButtons } from "@/components/AuthButtons";
 import { useNavigate } from "react-router-dom";
-import { Home } from "lucide-react";
+import { Home, Clock } from "lucide-react";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -47,6 +48,36 @@ const Index = () => {
                 Begin planning your construction or renovation project
               </p>
             </button>
+
+            <HoverCard>
+              <HoverCardTrigger>
+                <button
+                  onClick={() => navigate("/finance")}
+                  className="w-full max-w-md p-4 rounded-lg border bg-card hover:bg-accent/5 transition-colors duration-200 group"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="p-2 rounded-lg bg-accent/50">
+                      <Clock className="h-6 w-6 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-medium">Kitchen Renovation</h3>
+                        <span className="text-sm text-muted-foreground">Last updated 2 days ago</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-1">Individual Project • In Progress</p>
+                    </div>
+                  </div>
+                </button>
+              </HoverCardTrigger>
+              <HoverCardContent className="w-80">
+                <div className="space-y-2">
+                  <h4 className="font-semibold">Kitchen Renovation Project</h4>
+                  <p className="text-sm text-muted-foreground">Budget: $25,000</p>
+                  <p className="text-sm text-muted-foreground">Timeline: 3 months</p>
+                  <p className="text-sm text-muted-foreground">Progress: 45% complete</p>
+                </div>
+              </HoverCardContent>
+            </HoverCard>
           </div>
         </div>
       </main>
