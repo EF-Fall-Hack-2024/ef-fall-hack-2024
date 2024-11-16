@@ -40,7 +40,6 @@ export const TeamMemberForm = () => {
       <div className="space-y-6">
         <h3 className="text-lg font-semibold">Add Team Members</h3>
         
-        {/* Input fields for new member */}
         <div className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
@@ -78,7 +77,6 @@ export const TeamMemberForm = () => {
           </Button>
         </div>
 
-        {/* List of added members */}
         {teamMembers.length > 0 && (
           <div className="space-y-3">
             <h4 className="font-medium">Team Members:</h4>
