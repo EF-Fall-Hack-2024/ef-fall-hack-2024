@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Users, Phone, Mail, Star, MessageSquare, Calendar, ArrowUpRight } from "lucide-react";
+import { Users, Phone, Mail, Star, MessageSquare, Calendar, ArrowUpRight, PlusCircle } from "lucide-react";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 const ContractorCRM = () => {
+  const navigate = useNavigate();
   const contractors = [
     {
       name: "John Smith",
@@ -35,14 +37,28 @@ const ContractorCRM = () => {
     toast.success(`Message sent to ${name}`);
   };
 
+  const handleNewProject = () => {
+    navigate("/project-type");
+  };
+
   return (
     <div className="min-h-screen p-8 bg-gradient-to-br from-background via-contractor-accent to-background">
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="flex justify-between items-center animate-fade-in">
-          <h1 className="text-4xl font-bold flex items-center gap-3 bg-gradient-to-r from-contractor to-contractor-secondary bg-clip-text text-transparent">
-            <Users className="h-10 w-10 text-contractor" />
-            Contractor Management
-          </h1>
+          <div className="space-y-2">
+            <h1 className="text-4xl font-bold flex items-center gap-3 bg-gradient-to-r from-contractor to-contractor-secondary bg-clip-text text-transparent">
+              <Users className="h-10 w-10 text-contractor" />
+              Home Renovation Project
+            </h1>
+            <p className="text-muted-foreground">Contractor Management</p>
+          </div>
+          <Button 
+            onClick={handleNewProject}
+            className="group bg-contractor hover:bg-contractor-secondary transition-all duration-300"
+          >
+            <PlusCircle className="mr-2 h-4 w-4 group-hover:rotate-90 transition-transform duration-300" />
+            New Project
+          </Button>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
