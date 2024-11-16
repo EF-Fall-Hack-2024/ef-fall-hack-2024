@@ -1,10 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Facebook, LogIn } from "lucide-react";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 export const AuthButtons = () => {
+  const navigate = useNavigate();
+
   const handleAuth = (provider: string) => {
-    toast.info(`${provider} authentication coming soon`);
+    toast.success(`Successfully signed in with ${provider}!`);
+    // Simulate a brief delay before navigation to make it feel more realistic
+    setTimeout(() => {
+      navigate("/project-type");
+    }, 1000);
   };
 
   return (
