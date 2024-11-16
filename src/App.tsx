@@ -9,6 +9,7 @@ import ProjectSetup from "./pages/ProjectSetup";
 import FinanceSheet from "./pages/FinanceSheet";
 import TaskBoard from "./pages/TaskBoard";
 import ContractorCRM from "./pages/ContractorCRM";
+import ARDemo from "./pages/ARDemo";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/finance" element={<FinanceSheet />} />
           <Route path="/tasks" element={<TaskBoard />} />
           <Route path="/contractors" element={<ContractorCRM />} />
+          <Route path="/ar-demo" element={<ARDemo />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
