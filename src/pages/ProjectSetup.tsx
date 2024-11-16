@@ -8,27 +8,24 @@ import { motion } from "framer-motion";
 const ProjectSetup = () => {
   const [projectType, setProjectType] = useState<"renovation" | "new-build" | null>(null);
   const [showTeamSection, setShowTeamSection] = useState(false);
-
-  // Check URL parameters for business type
   const isBusinessProject = new URLSearchParams(window.location.search).get('type') === 'business';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
-      <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="text-center space-y-4 mb-12">
-          <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-            {projectType ? 'Project Details' : 'What type of project is this?'}
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-accent/20">
+      <div className="w-full max-w-4xl p-8 space-y-8 animate-fade-in">
+        <div className="text-center space-y-2">
+          <h1 className="text-3xl font-bold text-foreground">
+            {projectType ? 'Project Details' : 'Choose Your Project Type'}
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground">
             {projectType 
-              ? "Let's gather some information about your project to help you get started"
-              : "Choose the type of project you're planning to work on"}
+              ? "Let's gather some information about your project"
+              : "Select the type of project you'll be working on"}
           </p>
         </div>
 
         {!projectType ? (
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -46,7 +43,7 @@ const ProjectSetup = () => {
                 </div>
                 <div className="text-center">
                   <h3 className="text-2xl font-semibold mb-2">Renovation</h3>
-                  <p className="text-muted-foreground">Transform your existing space with a renovation project</p>
+                  <p className="text-muted-foreground">Transform your existing space</p>
                 </div>
               </button>
             </motion.div>
@@ -68,7 +65,7 @@ const ProjectSetup = () => {
                 </div>
                 <div className="text-center">
                   <h3 className="text-2xl font-semibold mb-2">New Build</h3>
-                  <p className="text-muted-foreground">Start fresh with a new construction project</p>
+                  <p className="text-muted-foreground">Start fresh with a new construction</p>
                 </div>
               </button>
             </motion.div>
