@@ -12,7 +12,7 @@ const Index = () => {
         <div className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <MessageSquare className="h-6 w-6 text-primary" />
-            <span className="font-semibold text-lg">Build & Renovate</span>
+            <span className="font-semibold text-lg">Koti</span>
           </div>
           <AuthButtons />
         </div>
@@ -23,7 +23,7 @@ const Index = () => {
         <div className="max-w-2xl w-full space-y-8 animate-fade-in">
           <div className="space-y-4 text-center">
             <h1 className="text-4xl font-bold tracking-tight">
-              Welcome to Build & Renovate
+              Welcome to Koti
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto">
               Your intelligent assistant for planning, managing, and executing construction and renovation projects with ease.
@@ -47,7 +47,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t">
         <div className="max-w-screen-xl mx-auto p-4 text-center text-sm text-muted-foreground">
-          Build & Renovate © {new Date().getFullYear()}
+          Koti © {new Date().getFullYear()}
         </div>
       </footer>
     </div>
