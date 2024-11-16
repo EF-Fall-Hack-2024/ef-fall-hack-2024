@@ -14,6 +14,7 @@ const ContractorCRM = () => {
       email: "john@example.com",
       rating: 4.8,
       lastContact: "2 days ago",
+      favorite: false,
     },
     {
       name: "Sarah Johnson",
@@ -22,6 +23,7 @@ const ContractorCRM = () => {
       email: "sarah@example.com",
       rating: 4.9,
       lastContact: "1 week ago",
+      favorite: false,
     },
     {
       name: "Mike Brown",
@@ -30,6 +32,7 @@ const ContractorCRM = () => {
       email: "mike@example.com",
       rating: 4.7,
       lastContact: "3 days ago",
+      favorite: false,
     },
   ];
 
@@ -41,17 +44,18 @@ const ContractorCRM = () => {
     navigate("/project-type");
   };
 
+  const handleFavorite = (name: string) => {
+    toast.success(`${name} added to favorites`);
+  };
+
   return (
     <div className="min-h-screen p-8 bg-gradient-to-br from-background via-contractor-accent to-background">
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="flex justify-between items-center animate-fade-in">
-          <div className="space-y-2">
-            <h1 className="text-4xl font-bold flex items-center gap-3 bg-gradient-to-r from-contractor to-contractor-secondary bg-clip-text text-transparent">
-              <Users className="h-10 w-10 text-contractor" />
-              Home Renovation Project
-            </h1>
-            <p className="text-muted-foreground">Contractor Management</p>
-          </div>
+          <h1 className="text-4xl font-bold flex items-center gap-3 bg-gradient-to-r from-contractor to-contractor-secondary bg-clip-text text-transparent">
+            <Users className="h-10 w-10 text-contractor" />
+            Potential Contractors
+          </h1>
           <Button 
             onClick={handleNewProject}
             className="group bg-contractor hover:bg-contractor-secondary transition-all duration-300"
@@ -69,10 +73,20 @@ const ContractorCRM = () => {
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <div className="space-y-2">
-                <h2 className="text-2xl font-semibold text-contractor group-hover:text-contractor-secondary transition-colors duration-300 flex items-center justify-between">
-                  {contractor.name}
-                  <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </h2>
+                <div className="flex items-center justify-between">
+                  <h2 className="text-2xl font-semibold text-contractor group-hover:text-contractor-secondary transition-colors duration-300 flex items-center">
+                    {contractor.name}
+                    <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-2" />
+                  </h2>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => handleFavorite(contractor.name)}
+                    className="text-contractor hover:text-contractor-secondary hover:bg-contractor-accent/20"
+                  >
+                    <Star className="h-5 w-5" />
+                  </Button>
+                </div>
                 <p className="text-muted-foreground flex items-center gap-2">
                   <Star className="h-4 w-4 text-contractor animate-pulse" />
                   {contractor.rating} rating
