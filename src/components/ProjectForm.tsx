@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 interface ProjectFormProps {
   type: "renovation" | "new-build";
@@ -13,10 +14,12 @@ interface ProjectFormProps {
 export const ProjectForm = ({ type }: ProjectFormProps) => {
   const [budget, setBudget] = useState("");
   const [description, setDescription] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Project details saved!");
+    navigate("/finance");
   };
 
   return (
