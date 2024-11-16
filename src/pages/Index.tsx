@@ -23,18 +23,13 @@ const Index = () => {
       {/* Main Content */}
       <main className="flex-1 flex items-center justify-center p-4">
         <div className="max-w-2xl w-full space-y-8 animate-fade-in">
-          <div className="flex flex-col items-center space-y-8">
-            <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-              <Home className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" />
-            </div>
-            <div className="space-y-4 text-center">
-              <h1 className="text-4xl font-bold tracking-tight">
-                Welcome to Koti
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Your intelligent assistant for planning, managing, and executing construction and renovation projects with ease.
-              </p>
-            </div>
+          <div className="space-y-4 text-center">
+            <h1 className="text-4xl font-bold tracking-tight">
+              Welcome to Koti
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+              Your intelligent assistant for planning, managing, and executing construction and renovation projects with ease.
+            </p>
           </div>
 
           <div className="flex flex-col items-center gap-4">
