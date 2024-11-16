@@ -1,6 +1,6 @@
 import { AuthButtons } from "@/components/AuthButtons";
 import { useNavigate } from "react-router-dom";
-import { MessageSquare } from "lucide-react";
+import { Home } from "lucide-react";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -10,9 +10,11 @@ const Index = () => {
       {/* Header */}
       <header className="border-b">
         <div className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <MessageSquare className="h-6 w-6 text-primary" />
-            <span className="font-semibold text-lg">Koti</span>
+          <div className="flex items-center gap-2 group cursor-pointer" onClick={() => navigate("/")}>
+            <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
+              <Home className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <span className="font-semibold text-lg bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Koti</span>
           </div>
           <AuthButtons />
         </div>
