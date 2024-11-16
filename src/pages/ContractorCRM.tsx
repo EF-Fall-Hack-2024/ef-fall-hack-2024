@@ -36,11 +36,11 @@ const ContractorCRM = () => {
   };
 
   return (
-    <div className="min-h-screen p-8 bg-gradient-to-br from-background via-accent/20 to-background">
+    <div className="min-h-screen p-8 bg-gradient-to-br from-background via-contractor-accent to-background">
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="flex justify-between items-center animate-fade-in">
-          <h1 className="text-4xl font-bold flex items-center gap-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            <Users className="h-10 w-10 text-primary" />
+          <h1 className="text-4xl font-bold flex items-center gap-3 bg-gradient-to-r from-contractor to-contractor-secondary bg-clip-text text-transparent">
+            <Users className="h-10 w-10 text-contractor" />
             Contractor Management
           </h1>
         </div>
@@ -49,19 +49,19 @@ const ContractorCRM = () => {
           {contractors.map((contractor, index) => (
             <Card 
               key={contractor.name} 
-              className="group p-6 space-y-4 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-white to-accent/10 animate-fade-in border border-accent/20 backdrop-blur-sm"
+              className="group p-6 space-y-4 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-white to-contractor-accent/10 animate-fade-in border border-contractor-accent/20 backdrop-blur-sm"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <div className="space-y-2">
-                <h2 className="text-2xl font-semibold text-primary group-hover:text-secondary transition-colors duration-300 flex items-center justify-between">
+                <h2 className="text-2xl font-semibold text-contractor group-hover:text-contractor-secondary transition-colors duration-300 flex items-center justify-between">
                   {contractor.name}
                   <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </h2>
                 <p className="text-muted-foreground flex items-center gap-2">
-                  <Star className="h-4 w-4 text-yellow-400 animate-pulse" />
+                  <Star className="h-4 w-4 text-contractor animate-pulse" />
                   {contractor.rating} rating
                 </p>
-                <p className="text-secondary font-medium">{contractor.role}</p>
+                <p className="text-contractor-secondary font-medium">{contractor.role}</p>
               </div>
               <div className="space-y-3">
                 <div className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
@@ -78,14 +78,14 @@ const ContractorCRM = () => {
                 </div>
               </div>
               <Button 
-                className="w-full mt-4 group relative overflow-hidden" 
+                className="w-full mt-4 group relative overflow-hidden bg-contractor hover:bg-contractor-secondary" 
                 onClick={() => handleContact(contractor.name)}
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   <MessageSquare className="h-4 w-4 group-hover:scale-110 transition-transform" />
                   Contact
                 </span>
-                <span className="absolute inset-0 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                <span className="absolute inset-0 bg-contractor-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </Button>
             </Card>
           ))}

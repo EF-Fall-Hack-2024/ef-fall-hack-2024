@@ -27,7 +27,7 @@ const FinanceSheet = () => {
   };
 
   return (
-    <div className="min-h-screen p-8 bg-gradient-to-br from-background via-accent/20 to-background">
+    <div className="min-h-screen p-8 bg-gradient-to-br from-background via-accent to-background">
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="flex justify-between items-center animate-fade-in">
           <h1 className="text-4xl font-bold flex items-center gap-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -46,7 +46,7 @@ const FinanceSheet = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <Card className="p-6 space-y-4 bg-gradient-to-br from-white to-accent/10 animate-fade-in border border-accent/20 backdrop-blur-sm group">
+          <Card className="p-6 space-y-4 bg-gradient-to-br from-white to-accent animate-fade-in border border-accent/20 backdrop-blur-sm group">
             <h2 className="text-xl font-semibold flex items-center gap-2 text-primary">
               <ChartBar className="h-5 w-5" />
               Budget Overview
@@ -67,7 +67,7 @@ const FinanceSheet = () => {
             </div>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-br from-white to-accent/10 animate-fade-in border border-accent/20 backdrop-blur-sm">
+          <Card className="p-6 bg-gradient-to-br from-white to-accent animate-fade-in border border-accent/20 backdrop-blur-sm">
             <h2 className="text-xl font-semibold mb-4 flex items-center gap-2 text-primary">
               <TrendingUp className="h-5 w-5" />
               Expense Distribution
@@ -82,18 +82,18 @@ const FinanceSheet = () => {
                     contentStyle={{ 
                       backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       borderRadius: '8px',
-                      border: '1px solid rgba(155, 135, 245, 0.2)',
+                      border: '1px solid rgba(34, 197, 94, 0.2)',
                       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
                     }}
                   />
-                  <Bar dataKey="amount" fill="#9b87f5" />
+                  <Bar dataKey="amount" fill="#22c55e" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
           </Card>
         </div>
 
-        <Card className="p-6 bg-gradient-to-br from-white to-accent/10 animate-fade-in border border-accent/20 backdrop-blur-sm">
+        <Card className="p-6 bg-gradient-to-br from-white to-accent animate-fade-in border border-accent/20 backdrop-blur-sm">
           <h2 className="text-xl font-semibold mb-6 text-primary">Recent Transactions</h2>
           <div className="space-y-4">
             {transactions.map((transaction, index) => (

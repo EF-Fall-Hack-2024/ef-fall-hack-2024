@@ -10,7 +10,7 @@ const TaskBoard = () => {
   const columns = [
     {
       title: "To Do",
-      icon: <AlertCircle className="h-5 w-5 text-red-500" />,
+      icon: <AlertCircle className="h-5 w-5 text-task" />,
       tasks: [
         { id: 1, title: "Select materials", priority: "high" },
         { id: 2, title: "Contact suppliers", priority: "medium" },
@@ -19,7 +19,7 @@ const TaskBoard = () => {
     },
     {
       title: "In Progress",
-      icon: <Clock className="h-5 w-5 text-yellow-500" />,
+      icon: <Clock className="h-5 w-5 text-task" />,
       tasks: [
         { id: 4, title: "Site preparation", priority: "high" },
         { id: 5, title: "Foundation work", priority: "medium" },
@@ -38,9 +38,9 @@ const TaskBoard = () => {
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case "high":
-        return "bg-red-100 text-red-700 border-red-200";
+        return "bg-task/10 text-task border-task/20";
       case "medium":
-        return "bg-yellow-100 text-yellow-700 border-yellow-200";
+        return "bg-task-secondary/10 text-task-secondary border-task-secondary/20";
       default:
         return "bg-green-100 text-green-700 border-green-200";
     }
@@ -51,11 +51,11 @@ const TaskBoard = () => {
   };
 
   return (
-    <div className="min-h-screen p-8 bg-gradient-to-br from-background via-accent/20 to-background">
+    <div className="min-h-screen p-8 bg-gradient-to-br from-background via-task-accent to-background">
       <div className="max-w-7xl mx-auto space-y-8">
         <div className="flex justify-between items-center animate-fade-in">
-          <h1 className="text-4xl font-bold flex items-center gap-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            <Kanban className="h-10 w-10 text-primary" />
+          <h1 className="text-4xl font-bold flex items-center gap-3 bg-gradient-to-r from-task to-task-secondary bg-clip-text text-transparent">
+            <Kanban className="h-10 w-10 text-task" />
             Task Board
           </h1>
           <div className="space-x-4">
@@ -63,7 +63,7 @@ const TaskBoard = () => {
               <Plus className="mr-2 h-4 w-4 group-hover:rotate-90 transition-transform duration-300" />
               Add Task
             </Button>
-            <Button onClick={() => navigate("/contractors")}>
+            <Button onClick={() => navigate("/contractors")} className="bg-task hover:bg-task-secondary">
               Next: Contractors <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
@@ -73,10 +73,10 @@ const TaskBoard = () => {
           {columns.map((column, columnIndex) => (
             <Card 
               key={column.title} 
-              className="p-4 bg-gradient-to-b from-white to-accent/5 animate-fade-in border border-accent/20 backdrop-blur-sm"
+              className="p-4 bg-gradient-to-b from-white to-task-accent/5 animate-fade-in border border-task-accent/20 backdrop-blur-sm"
               style={{ animationDelay: `${columnIndex * 150}ms` }}
             >
-              <h2 className="text-xl font-semibold mb-4 text-primary flex items-center gap-2">
+              <h2 className="text-xl font-semibold mb-4 text-task flex items-center gap-2">
                 {column.icon}
                 {column.title}
               </h2>
@@ -88,7 +88,7 @@ const TaskBoard = () => {
                     style={{ animationDelay: `${(columnIndex * 150) + (taskIndex * 100)}ms` }}
                   >
                     <div className="space-y-2">
-                      <h3 className="font-medium group-hover:text-primary transition-colors">{task.title}</h3>
+                      <h3 className="font-medium group-hover:text-task transition-colors">{task.title}</h3>
                       <span className={`text-xs px-2 py-1 rounded-full ${getPriorityColor(task.priority)} border capitalize inline-block`}>
                         {task.priority} Priority
                       </span>

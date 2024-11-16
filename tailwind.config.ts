@@ -25,16 +25,26 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#9b87f5",
+          DEFAULT: "#22c55e", // Green for finance
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#7E69AB",
+          DEFAULT: "#16a34a", // Darker green for finance
           foreground: "#ffffff",
         },
         accent: {
-          DEFAULT: "#F2FCE2",
+          DEFAULT: "#dcfce7", // Light green for finance
           foreground: "#1A1F2C",
+        },
+        task: {
+          DEFAULT: "#ef4444", // Red for tasks
+          secondary: "#dc2626", // Darker red
+          accent: "#fee2e2", // Light red
+        },
+        contractor: {
+          DEFAULT: "#eab308", // Yellow for contractors
+          secondary: "#ca8a04", // Darker yellow
+          accent: "#fef9c3", // Light yellow
         },
       },
       keyframes: {
