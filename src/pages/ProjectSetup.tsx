@@ -71,13 +71,13 @@ const ProjectSetup = () => {
             </motion.div>
           </div>
         ) : (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-          >
-            <div className="space-y-8">
+          <div className="flex flex-col items-center justify-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="w-full max-w-lg space-y-8"
+            >
               <ProjectForm type={projectType} />
               <Button
                 variant="outline"
@@ -86,13 +86,13 @@ const ProjectSetup = () => {
               >
                 Change Project Type
               </Button>
-            </div>
+            </motion.div>
             {isBusinessProject && (
-              <div className="space-y-4">
+              <div className="mt-8 w-full max-w-lg">
                 <TeamMemberForm />
               </div>
             )}
-          </motion.div>
+          </div>
         )}
       </div>
     </div>
