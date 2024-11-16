@@ -20,46 +20,12 @@ const ARDemo = () => {
           <div className="absolute inset-0 bg-black rounded-[3rem] -z-10 shadow-xl"></div>
           <div className="relative rounded-[2.5rem] overflow-hidden border-[8px] border-black aspect-[9/19]">
             {/* AR View */}
-            <div className="relative w-full h-full bg-gradient-to-b from-neutral-100 to-neutral-200">
-              {/* Room background */}
-              <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-80"></div>
-
-              {/* AR Sofa */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="absolute bottom-[20%] left-1/2 -translate-x-1/2 w-[80%]"
-              >
-                <img
-                  src="/placeholder.svg"
-                  alt="AR Sofa"
-                  className="w-full h-auto opacity-90"
-                />
-              </motion.div>
-
-              {/* AR Interface Elements */}
-              <div className="absolute inset-x-4 top-4 flex justify-between items-center">
-                <Button variant="secondary" size="icon" className="rounded-full bg-black/20 border-2 border-white/20 backdrop-blur-sm">
-                  <RotateCcw className="h-4 w-4 text-white" />
-                </Button>
-                <div className="space-x-2">
-                  <Button variant="secondary" size="icon" className="rounded-full bg-red-500 border-2 border-white/20">
-                    <X className="h-4 w-4 text-white" />
-                  </Button>
-                  <Button variant="secondary" size="icon" className="rounded-full bg-green-500 border-2 border-white/20">
-                    <Check className="h-4 w-4 text-white" />
-                  </Button>
-                </div>
-              </div>
-
-              {/* AR Guidelines */}
-              <div className="absolute inset-0 border-2 border-white/10 border-dashed m-8"></div>
-
-              {/* Instructions */}
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                <p className="text-white text-sm">Move phone to scan area</p>
-              </div>
+            <div className="relative w-full h-full">
+              <img 
+                src="https://images.unsplash.com/photo-1721322800607-8c38375eef04"
+                alt="AR View of sofa in living room"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
