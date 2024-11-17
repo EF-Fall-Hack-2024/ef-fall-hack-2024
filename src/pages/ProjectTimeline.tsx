@@ -77,7 +77,7 @@ const ProjectTimeline = () => {
         <div className="w-full px-4 sm:px-0">
           <Button 
             onClick={() => navigate("/finance")}
-            className="w-full bg-contractor-DEFAULT hover:bg-contractor-secondary text-white"
+            className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-medium"
           >
             Continue to Financial Sheet
           </Button>
