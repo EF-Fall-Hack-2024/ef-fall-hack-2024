@@ -3,8 +3,14 @@ const Task = require("../models/Task");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.json({});
+router.get("/:task_id", async (req, res) => {
+  const task_id = req.params.task_id;
+  const task = await Task.findOne({ taskId: task_id });
+  if (task) {
+    res.status(200).json(task);
+  } else {
+    res.status(404).json({ msg: "Not found" });
+  }
 });
 
 router.post("/", async (req, res) => {
