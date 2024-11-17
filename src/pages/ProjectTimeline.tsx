@@ -6,7 +6,7 @@ const ProjectTimeline = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-contractor-accent p-6">
+    <div className="min-h-screen bg-contractor-accent p-4 sm:p-6">
       <div className="max-w-3xl mx-auto space-y-6 animate-fade-in">
         <h1 className="text-3xl font-bold text-contractor-secondary">Project Timeline</h1>
         
@@ -74,12 +74,14 @@ const ProjectTimeline = () => {
           </div>
         </Card>
 
-        <Button 
-          onClick={() => navigate("/finance")}
-          className="w-full bg-contractor-DEFAULT hover:bg-contractor-secondary"
-        >
-          Continue to Financial Sheet
-        </Button>
+        <div className="w-full px-4 sm:px-0">
+          <Button 
+            onClick={() => navigate("/finance")}
+            className="w-full bg-contractor-DEFAULT hover:bg-contractor-secondary text-white"
+          >
+            Continue to Financial Sheet
+          </Button>
+        </div>
       </div>
     </div>
   );
