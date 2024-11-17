@@ -12,6 +12,18 @@ const ProjectTimeline = () => {
         
         <Card className="p-6 space-y-6">
           <div className="space-y-4">
+            <h2 className="text-xl font-semibold text-contractor-secondary">Project Plan</h2>
+            <p className="text-gray-700 leading-relaxed bg-white p-4 rounded-lg">
+              Modern apartment condo renovation featuring an open-concept living space 
+              with high-end finishes. The project includes a complete kitchen remodel 
+              with custom cabinetry, quartz countertops, and stainless steel appliances. 
+              Master bathroom to be upgraded with luxury fixtures and walk-in shower. 
+              Additional improvements include hardwood flooring throughout, smart home 
+              integration, and energy-efficient lighting systems. Total living space: 1,200 sq ft.
+            </p>
+          </div>
+
+          <div className="space-y-4">
             <h2 className="text-xl font-semibold text-contractor-secondary">Planning Phase</h2>
             <div className="space-y-3">
               <TimelineItem
