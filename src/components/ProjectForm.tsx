@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import { Loader2 } from "lucide-react";
 
 interface ProjectFormProps {
   type: "renovation" | "new-build";
@@ -14,10 +15,16 @@ interface ProjectFormProps {
 export const ProjectForm = ({ type }: ProjectFormProps) => {
   const [budget, setBudget] = useState("");
   const [description, setDescription] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
+    
+    // Simulate loading state
+    await new Promise(resolve => setTimeout(resolve, 2300));
+    
     toast.success("Project details saved!");
     navigate("/finance");
   };
@@ -34,6 +41,7 @@ export const ProjectForm = ({ type }: ProjectFormProps) => {
             value={budget}
             onChange={(e) => setBudget(e.target.value)}
             required
+            disabled={isLoading}
           />
         </div>
         <div className="space-y-2">
@@ -45,10 +53,18 @@ export const ProjectForm = ({ type }: ProjectFormProps) => {
             onChange={(e) => setDescription(e.target.value)}
             required
             className="min-h-[150px]"
+            disabled={isLoading}
           />
         </div>
-        <Button type="submit" className="w-full">
-          Continue
+        <Button type="submit" className="w-full" disabled={isLoading}>
+          {isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Generating...
+            </>
+          ) : (
+            "Continue"
+          )}
         </Button>
       </form>
     </Card>
