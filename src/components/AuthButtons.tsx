@@ -5,7 +5,7 @@ export const AuthButtons = () => {
     <div className="flex items-center gap-4">
       <Button variant="outline" className="flex items-center gap-2">
         <img
-          src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_24dp.png"
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
           alt="Google"
           className="w-5 h-5"
         />
