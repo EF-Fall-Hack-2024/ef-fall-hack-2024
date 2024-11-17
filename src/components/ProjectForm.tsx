@@ -26,7 +26,7 @@ export const ProjectForm = ({ type }: ProjectFormProps) => {
     await new Promise(resolve => setTimeout(resolve, 2300));
     
     toast.success("Project details saved!");
-    navigate("/finance");
+    navigate("/project-timeline");
   };
 
   return (
