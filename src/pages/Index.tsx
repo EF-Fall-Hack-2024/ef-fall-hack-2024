@@ -60,7 +60,7 @@ const Index = () => {
                       <Clock className="h-6 w-6 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center justify-between">
+                      <div className="flex flex-col">
                         <h3 className="font-medium">Kitchen Renovation</h3>
                         <span className="text-sm text-muted-foreground">Last updated 2 days ago</span>
                       </div>
